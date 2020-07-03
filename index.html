@@ -68,9 +68,9 @@
                 }
                 for (let j = 0; j < columns; j++) {
                     var columnElement = document.createElement('div');
-                    columnElement.className = 'col-sm-4 border text-center mx-auto';
+                    columnElement.className = 'col-sm-4 text-center mx-auto';
                     columnElement.innerHTML = ' ';
-                    columnElement.setAttribute("style" ,"height:150px;font-size:90px;font-family: 'Cabin Sketch', cursive;");
+                    columnElement.setAttribute("style" ,"border-style: solid;height:150px;font-size:90px;font-family: 'Cabin Sketch', cursive;");
                     columnElement.id = i + '-' + j;
                     columnElement.addEventListener('click', function(){
                         if (this.innerHTML != 'X' && this.innerHTML != 'O'){
