@@ -87,8 +87,6 @@
             console.log(boardArray);
         }//end function makeBoard
 
-       
-            
         
         function checkWin() {
             //Player 1 win conditions
@@ -260,6 +258,7 @@
                 document.getElementById('player-2-score').innerHTML = playerTwoScore;
                 document.getElementById('board').innerHTML = '';
                 makeBoard (document.getElementById('board'))
+
             }
             if(boardArray[0][2].innerHTML == 'X' && boardArray[1][2].innerHTML == 'X' && boardArray[2][2].innerHTML == 'X'){
                 alert("Player 1 Wins!");
@@ -274,12 +273,10 @@
 
         }
         
-        
-
         var board = document.getElementById("board");
         var boardArray = [];
         
-        
     </script>
+
     </body>
 </html>
