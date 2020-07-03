@@ -10,7 +10,12 @@
     <body>
         <h1 class="text-center">Tic Tac Toe</h1>
         <br>
-        <h2 id='player-turn' class='text-center'>Player 1's Turn</h2>
+        <div id='top-area' class='text-center'>
+            <button type='button' onclick='makeBoard(board)' class='btn btn-primary' id='start-button'>Start game!</button>
+            <h2 id='player-turn' class='text-center'></h2>
+        </div> 
+        <br>
+        
         <div class="container" id="board"></div>
         <br>
         <div class="score-board">
@@ -26,16 +31,18 @@
 
                 <div class="col-3"><h3 id='player-2-score' class='text-center'>0</h3></div>
 
-            
-
             </div>
 
         </div>
-    </body>
+    
     <script type="text/javascript">
         var player = true;
+        
         function makeBoard(boardElement) {
-            var playerTurn = document.getElementById('player-turn')
+            var playerTurn = document.getElementById('player-turn');
+            playerTurn.innerHTML=("Player 1's Turn - X");
+            document.getElementById('start-button').innerHTML = 'Reset Board';
+            document.getElementById('board').innerHTML = '';
             var rows = 3;
             var columns = 3;
             for (let i = 0; i < rows; i++) {
@@ -55,14 +62,14 @@
                         if (this.innerHTML != 'X' && this.innerHTML != 'O'){
                             if (player) {
                                 this.innerHTML ="X";
-                                this.setAttribute("style", "margin:auto");
+                                //this.setAttribute("style", "margin:auto");
                                 checkWin();  
                                 rowElement.appendChild(columnElement);
                                 player = false;
                                 playerTurn.innerHTML=("Player 2's Turn - O")
                             }  else {
                                 this.innerHTML ="O";
-                                this.setAttribute("style", "margin:auto");
+                                //this.setAttribute("style", "margin:auto");
                                 checkWin();
                                 rowElement.appendChild(columnElement);
                                 player = true;
@@ -80,8 +87,6 @@
             console.log(boardArray);
         }//end function makeBoard
 
-
-            
         
         function checkWin() {
             //Player 1 win conditions
@@ -255,12 +260,23 @@
                 makeBoard (document.getElementById('board'))
 
             }
+            if(boardArray[0][2].innerHTML == 'X' && boardArray[1][2].innerHTML == 'X' && boardArray[2][2].innerHTML == 'X'){
+                alert("Player 1 Wins!");
+                var playerOneScore = parseFloat(document.getElementById('player-one-score').innerHTML);
+                console.log(playerOneScore);
+                playerOneScore += 1;
+                console.log(playerOneScore);
+                document.getElementById('player-one-score').innerHTML = playerOneScore;
+                document.getElementById('board').innerHTML = '';
+                makeBoard (document.getElementById('board'));
+            }
+
         }
         
-
-
         var board = document.getElementById("board");
         var boardArray = [];
-        makeBoard(board);
+        
     </script>
+
+    </body>
 </html>
